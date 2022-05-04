@@ -1,2 +1,17 @@
 ###
-GET http://localhost:3306/
+GET http://localhost:3000/api/pets
+
+###
+POST http://localhost:3000/api/pets/create
+Content-Type: application/json
+
+###
+POST http://localhost:3000/api/pets
+Content-Type: application/json
+
+{
+    "name": "Rokas",
+    "dob": 2000,
+    "client_email": "smellycat@hotmail.com" ,
+    "archived": 1
+}
