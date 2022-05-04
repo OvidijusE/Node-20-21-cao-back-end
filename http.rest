@@ -1,2 +1,2 @@
 ###
-GET http://localhost:3306/
+GET http://localhost:3306/pets

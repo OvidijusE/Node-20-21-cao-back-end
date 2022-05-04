@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
-const { PORT } = require('./config');
+const { PORT } = require('./dbSetup');
 
 const app = express();
 
