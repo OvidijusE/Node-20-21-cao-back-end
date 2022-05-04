@@ -12,6 +12,6 @@ Content-Type: application/json
 {
     "name": "Rokas",
     "dob": 2000,
-    "client_email": "smellycat@hotmail.com" ,
+    "client_email": "smellycat@hotmail.com",
     "archived": 1
 }
