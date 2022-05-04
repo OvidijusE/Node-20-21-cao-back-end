@@ -14,6 +14,8 @@ app.get('/', (req, res) => res.json('wassup'));
 
 app.use('/api', vetRoutes);
 
-app.all('*'), (req, res) => res.status(404).json({ err: 'Page not found' });
+app.all('*', (req, res) => {
+  res.status(404).json({ err: 'page not found' });
+});
 
-app.listen(PORT, () => console.log('express is ONLINE', PORT));
+app.listen(PORT, () => console.log(`Express online: ${PORT}`));
