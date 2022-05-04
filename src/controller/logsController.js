@@ -11,8 +11,8 @@ async function createTable(req, res) {
   }
 }
 
-async function createCategory(req, res) {
-  console.log('createCategory controller ran');
+async function logsCategory(req, res) {
+  console.log('logsCategory controller ran');
   try {
     // eslint-disable-next-line camelcase
     const { pet_id, description, status } = req.body;
@@ -29,5 +29,5 @@ async function createCategory(req, res) {
 
 module.exports = {
   createTable,
-  createCategory,
+  logsCategory,
 };
