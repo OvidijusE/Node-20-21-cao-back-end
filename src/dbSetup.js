@@ -1,14 +1,13 @@
 require('dotenv').config();
 
-const PORT = process.env.PORT || 5000;
+const PORT = +process.env.PORT || 5000;
 
 // db config
 const dbConfig = {
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_DATABASE,
-  port: process.env.DB_PORT,
+  host: process.env.HOST,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE,
 };
 
 module.exports = {

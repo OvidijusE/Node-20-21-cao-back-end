@@ -1,0 +1,44 @@
+/* eslint-disable camelcase */
+const mysql = require('mysql2/promise');
+const { dbConfig } = require('../dbSetup');
+
+async function createPetsTable() {
+  console.log('createPetsDB model ran');
+  let conn;
+  try {
+    conn = await mysql.createConnection(dbConfig);
+    const sql = 'CREATE TABLE slscom_vetbee2.pets (id INT AUTO_INCREMENT PRIMARY KEY, name TEXT, dob INT, client_email TEXT, archived INT';
+    console.log('pries uzklausa');
+    const [result] = await conn.query(sql);
+    console.log('po uzklausos');
+    return result;
+  } catch (error) {
+    console.log('error createTableDB', error);
+    // return false
+    throw error;
+  } finally {
+    conn?.end();
+  }
+}
+
+async function insertPetDb(title, dob, client_email, archived) {
+  console.log('insertCatDB model ran');
+  let conn;
+  try {
+    conn = await mysql.createConnection(dbConfig);
+    const sql = "INSERT INTO pets (name, dob, client_email, archived) VALUES ('Rokas', 2000, 'smellycat@hotmail.com', 1)";
+    const [result] = await conn.execute(sql, [title, dob, client_email, archived]);
+    return result;
+  } catch (error) {
+    console.log('error createPetDB', error);
+    // return false
+    throw error;
+  } finally {
+    conn?.end();
+  }
+}
+
+module.exports = {
+  createPetsTable,
+  insertPetDb,
+};

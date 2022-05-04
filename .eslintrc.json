@@ -16,7 +16,7 @@
         "no-console": "off",
         "linebreak-style": ["off", "windows"],
         "no-param-reassign": 0,
-        "import/extensions": ["never"]
+        "import/extensions": 0
         }
 
 }

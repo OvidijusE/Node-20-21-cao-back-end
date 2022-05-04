@@ -1,2 +1,6 @@
 ###
-GET http://localhost:3306/
+POST http://localhost:3306/api/pets/create
+Content-Type: application/json
+
+###
+GET http://localhost:3306/api/pets
