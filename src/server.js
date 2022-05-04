@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const { PORT } = require('./dbSetup');
 const vetRoutes = require('./routes/vetRoutes');
+const logsRoutes = require('./routes/logsRoutes');
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(cors());
 app.get('/', (req, res) => res.json('wassup'));
 
 app.use('/api', vetRoutes);
+app.use('/api', logsRoutes);
 
 app.all('*', (req, res) => {
   res.status(404).json({ err: 'page not found' });
