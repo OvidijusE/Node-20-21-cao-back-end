@@ -12,4 +12,6 @@ const vetRoutes = express.Router();
 
 vetRoutes.post('/pets/create', controller.createTable);
 
+vetRoutes.post('/pets', controller.createCategory);
+
 module.exports = vetRoutes;

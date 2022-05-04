@@ -27,8 +27,7 @@ async function insertPetDb(title, dob, client_email, archived) {
   let conn;
   try {
     conn = await mysql.createConnection(dbConfig);
-    const sql =
-      "INSERT INTO pets (name, dob, client_email, archived) VALUES ('Rokas', 2000, 'smellycat@hotmail.com', 1)";
+    const sql = 'INSERT INTO pets (name, dob, client_email, archived) VALUES (?, ?, ?, ?)';
     const [result] = await conn.execute(sql, [title, dob, client_email, archived]);
     return result;
   } catch (error) {
