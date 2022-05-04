@@ -12,7 +12,7 @@ const logsRoutes = express.Router();
 
 logsRoutes.post('/logs/create', controller.createTable);
 
-logsRoutes.post('/logs', controller.createCategory);
+logsRoutes.post('/logs', controller.logsCategory);
 
 logsRoutes.get('/logs', async (req, res) => {
   let conn;
