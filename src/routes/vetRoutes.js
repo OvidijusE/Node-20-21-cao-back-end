@@ -31,4 +31,29 @@ vetRoutes.get('/pets', async (req, res) => {
   }
 });
 
+// archived
+// vetRoutes.delete('/posts/:postId', async (req, res) => {
+//   let connection;
+//   try {
+//     const { postId } = req.params;
+//     connection = await mysql.createConnection(dbConfig);
+//     const sql = 'DELETE FROM posts WHERE id = ?';
+//     const [deleteResult] = await connection.execute(sql, [postId]);
+//     if (deleteResult.affectedRows !== 1) {
+//       res.status(400).json({ success: false, error: `user with id: ${postId}, was not found` });
+//       return;
+//     }
+//     if (deleteResult.affectedRows === 1) {
+//       res.json('delete okey');
+//       return;
+//     }
+//     throw new Error('something wrong in delete deleteResult.affectedRows');
+//   } catch (error) {
+//     console.log('delete route error ===', error.message);
+//     res.status(500).json('error in delete posts');
+//   } finally {
+//     connection?.end();
+//   }
+// });
+
 module.exports = vetRoutes;
