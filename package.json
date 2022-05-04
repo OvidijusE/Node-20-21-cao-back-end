@@ -1,0 +1,22 @@
+{
+  "name": "node-20-21-cao-back-end",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/server.js",
+    "lint": " eslint src/",
+    "lintfix": "eslint src/ --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OvidijusE/Node-20-21-cao-back-end.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OvidijusE/Node-20-21-cao-back-end/issues"
+  },
+  "homepage": "https://github.com/OvidijusE/Node-20-21-cao-back-end#readme"
+}
