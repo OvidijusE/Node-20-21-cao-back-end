@@ -7,8 +7,7 @@ async function createLogsTable() {
   let conn;
   try {
     conn = await mysql.createConnection(dbConfig);
-    const sql =
-      'CREATE TABLE slscom_vetbee2.logs (id INT AUTO_INCREMENT PRIMARY KEY, pet_id INT, description TEXT, status TEXT)';
+    const sql = 'CREATE TABLE slscom_vetbee2.logs (id INT AUTO_INCREMENT PRIMARY KEY, pet_id INT, description TEXT, status TEXT)';
     console.log('pries uzklausa create logs table');
     const [result] = await conn.query(sql);
     console.log('po uzklausos create logs table');

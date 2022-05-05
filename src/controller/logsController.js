@@ -1,4 +1,4 @@
-const { createLogsTable, insertLogsDb } = require('../models/petModel');
+const { createLogsTable, insertLogsDb } = require('../models/logsModel');
 
 async function createTable(req, res) {
   console.log('createTable controller ran');

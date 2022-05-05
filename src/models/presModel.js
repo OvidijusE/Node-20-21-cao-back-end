@@ -2,12 +2,12 @@
 const mysql = require('mysql2/promise');
 const { dbConfig } = require('../dbSetup');
 
-async function createPetsTable() {
-  console.log('createPetsDB model ran');
+async function createPresTable() {
+  console.log('createPresDB model ran');
   let conn;
   try {
     conn = await mysql.createConnection(dbConfig);
-    const sql = 'CREATE TABLE slscom_vetbee2.pets (id INT AUTO_INCREMENT PRIMARY KEY, name TEXT, dob INT, client_email TEXT, archived INT)';
+    const sql = 'CREATE TABLE slscom_vetbee2.prescriptions (id INT AUTO_INCREMENT PRIMARY KEY, medication_id INT, pet_id INT, comment TEXT, timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP)';
     console.log('pries uzklausa');
     const [result] = await conn.query(sql);
     console.log('po uzklausos');
@@ -21,16 +21,16 @@ async function createPetsTable() {
   }
 }
 
-async function insertPetDb(name, dob, client_email, archived) {
+async function insertPresDb(medication_id, pet_id, comment) {
   console.log('insertCatDB model ran');
   let conn;
   try {
     conn = await mysql.createConnection(dbConfig);
-    const sql = 'INSERT INTO pets (name, dob, client_email, archived) VALUES (?, ?, ?, ?)';
-    const [result] = await conn.execute(sql, [name, dob, client_email, archived]);
+    const sql = 'INSERT INTO prescriptions (medication_id, pet_id, comment) VALUES (?, ?, ?)';
+    const [result] = await conn.execute(sql, [medication_id, pet_id, comment]);
     return result;
   } catch (error) {
-    console.log('error createPetDB', error);
+    console.log('error createPresDB', error);
     // return false
     throw error;
   } finally {
@@ -39,6 +39,6 @@ async function insertPetDb(name, dob, client_email, archived) {
 }
 
 module.exports = {
-  createPetsTable,
-  insertPetDb,
+  createPresTable,
+  insertPresDb,
 };

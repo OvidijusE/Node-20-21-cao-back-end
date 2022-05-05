@@ -1,10 +1,10 @@
 /* eslint-disable object-curly-newline */
-const { createPetsTable, insertPetDb } = require('../models/petModel');
+const { createMedsTable, insertMedsDb } = require('../models/medModel');
 
 async function createTable(req, res) {
   console.log('createTable controller ran');
   try {
-    const createResult = await createPetsTable();
+    const createResult = await createMedsTable();
     res.json(createResult);
   } catch (error) {
     console.log('error createTable ===', error);
@@ -12,12 +12,12 @@ async function createTable(req, res) {
   }
 }
 
-async function createCategory(req, res) {
-  console.log('createCategory controller ran');
+async function medsCategory(req, res) {
+  console.log('medsCategory controller ran');
   try {
     // eslint-disable-next-line camelcase
-    const { name, dob, client_email, archived } = req.body;
-    const createResult = await insertPetDb(name, dob, client_email, archived);
+    const { name, description } = req.body;
+    const createResult = await insertMedsDb(name, description);
     res.json(createResult);
   } catch (error) {
     if (error.errno === 1054) {
@@ -31,5 +31,5 @@ async function createCategory(req, res) {
 
 module.exports = {
   createTable,
-  createCategory,
+  medsCategory,
 };
