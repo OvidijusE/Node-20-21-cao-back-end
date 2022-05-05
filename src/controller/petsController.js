@@ -16,8 +16,8 @@ async function createCategory(req, res) {
   console.log('createCategory controller ran');
   try {
     // eslint-disable-next-line camelcase
-    const { name, dob, client_email, archived } = req.body;
-    const createResult = await insertPetDb(name, dob, client_email, archived);
+    const { name, dob, client_email } = req.body;
+    const createResult = await insertPetDb(name, dob, client_email);
     res.json(createResult);
   } catch (error) {
     if (error.errno === 1054) {

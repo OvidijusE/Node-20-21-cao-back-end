@@ -21,13 +21,13 @@ async function createPetsTable() {
   }
 }
 
-async function insertPetDb(name, dob, client_email, archived) {
+async function insertPetDb(name, dob, client_email) {
   console.log('insertCatDB model ran');
   let conn;
   try {
     conn = await mysql.createConnection(dbConfig);
-    const sql = 'INSERT INTO pets (name, dob, client_email, archived) VALUES (?, ?, ?, ?)';
-    const [result] = await conn.execute(sql, [name, dob, client_email, archived]);
+    const sql = 'INSERT INTO pets (name, dob, client_email) VALUES (?, ?, ?)';
+    const [result] = await conn.execute(sql, [name, dob, client_email]);
     return result;
   } catch (error) {
     console.log('error createPetDB', error);
