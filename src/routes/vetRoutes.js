@@ -20,7 +20,7 @@ vetRoutes.get('/pets', async (req, res) => {
     // 1 prisijungti
     conn = await mysql.createConnection(dbConfig);
     console.log('connected');
-    const sql = 'SELECT * FROM `pets`';
+    const sql = 'SELECT * FROM pets WHERE archived = 0';
     const [rows] = await conn.query(sql);
     res.json(rows);
   } catch (error) {
@@ -31,29 +31,22 @@ vetRoutes.get('/pets', async (req, res) => {
   }
 });
 
-// archived
-// vetRoutes.delete('/posts/:postId', async (req, res) => {
-//   let connection;
-//   try {
-//     const { postId } = req.params;
-//     connection = await mysql.createConnection(dbConfig);
-//     const sql = 'DELETE FROM posts WHERE id = ?';
-//     const [deleteResult] = await connection.execute(sql, [postId]);
-//     if (deleteResult.affectedRows !== 1) {
-//       res.status(400).json({ success: false, error: `user with id: ${postId}, was not found` });
-//       return;
-//     }
-//     if (deleteResult.affectedRows === 1) {
-//       res.json('delete okey');
-//       return;
-//     }
-//     throw new Error('something wrong in delete deleteResult.affectedRows');
-//   } catch (error) {
-//     console.log('delete route error ===', error.message);
-//     res.status(500).json('error in delete posts');
-//   } finally {
-//     connection?.end();
-//   }
-// });
+vetRoutes.delete('/pets/:id', async (req, res) => {
+  let conn;
+  try {
+    const { id } = req.params;
+    console.log('id===', id);
+    conn = await mysql.createConnection(dbConfig);
+    console.log('connected');
+    const sql = 'UPDATE pets SET archived = 1 WHERE id = ?';
+    const [rows] = await conn.execute(sql, [id]);
+    res.json(rows);
+  } catch (error) {
+    console.log('error in archive pets ===', error.message);
+    res.status(500).json('something went wrong');
+  } finally {
+    conn?.end();
+  }
+});
 
 module.exports = vetRoutes;

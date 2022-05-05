@@ -1,9 +1,6 @@
 ### PETS
 GET http://localhost:3306/api/pets
 
-### GET NOT ARCHIVED PETS
-GET http://localhost:3306/api/pets
-
 ###
 POST http://localhost:3306/api/pets/create
 Content-Type: application/json
@@ -17,6 +14,9 @@ Content-Type: application/json
     "dob": 2002,
     "client_email": "labas@krabaslabas.lt"
 }
+
+###
+DELETE http://localhost:3306/api/pets/5
 
 ### LOGS
 GET http://localhost:3306/api/logs
