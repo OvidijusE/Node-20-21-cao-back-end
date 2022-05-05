@@ -1,6 +1,9 @@
 ### PETS
 GET http://localhost:3306/api/pets
 
+### 
+GET http://localhost:3306/api/pets/archived
+
 ### PETS JOIN LOGS
 GET http://localhost:3306/api/pets/join
 
