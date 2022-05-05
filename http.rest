@@ -1,6 +1,9 @@
 ### PETS
 GET http://localhost:3306/api/pets
 
+### PETS JOIN LOGS
+GET http://localhost:3306/api/pets/join
+
 ###
 POST http://localhost:3306/api/pets/create
 Content-Type: application/json
@@ -30,8 +33,8 @@ POST http://localhost:3306/api/logs
 Content-Type: application/json
 
 {
-    "pet_id": 1,
-    "description": "Very good log",
+    "pet_id": 5,
+    "description": "Vezliukas nindze",
     "status": "Active"
     
 }

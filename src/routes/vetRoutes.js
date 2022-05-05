@@ -49,4 +49,21 @@ vetRoutes.delete('/pets/:id', async (req, res) => {
   }
 });
 
+vetRoutes.get('/pets/join', async (req, res) => {
+  let conn;
+  try {
+    // 1 prisijungti
+    conn = await mysql.createConnection(dbConfig);
+    console.log('connected');
+    const sql = 'SELECT * FROM logs LEFT JOIN pets ON logs.pet_id = pets.id';
+    const [rows] = await conn.query(sql);
+    res.json(rows);
+  } catch (error) {
+    console.log('error JOIN pets ===', error.message);
+    res.status(500).json('something went wrong');
+  } finally {
+    conn?.end();
+  }
+});
+
 module.exports = vetRoutes;
