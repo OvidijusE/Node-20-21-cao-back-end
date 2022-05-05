@@ -1,4 +1,4 @@
-###
+### PETS
 GET http://localhost:3306/api/pets
 
 ###
@@ -16,7 +16,7 @@ Content-Type: application/json
     "archived": 1
 }
 
-###
+### LOGS
 GET http://localhost:3306/api/logs
 
 ###
@@ -32,4 +32,20 @@ Content-Type: application/json
     "description": "Very good log",
     "status": "Active"
     
+}
+
+### MEDICATIONS
+GET http://localhost:3306/api/meds
+
+###
+POST http://localhost:3306/api/meds/create
+Content-Type: application/json
+
+###
+POST http://localhost:3306/api/meds
+Content-Type: application/json
+
+{
+    "name": "Xanax",
+    "description": "Makes your vision go brrrrrr"
 }
