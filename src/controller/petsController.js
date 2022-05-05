@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 const { createPetsTable, insertPetDb } = require('../models/petModel');
 
 async function createTable(req, res) {
