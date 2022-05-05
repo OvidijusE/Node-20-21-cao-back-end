@@ -7,8 +7,7 @@ async function createPetsTable() {
   let conn;
   try {
     conn = await mysql.createConnection(dbConfig);
-    const sql =
-      'CREATE TABLE slscom_vetbee2.pets (id INT AUTO_INCREMENT PRIMARY KEY, name TEXT, dob INT, client_email TEXT, archived INT)';
+    const sql = 'CREATE TABLE slscom_vetbee2.pets (id INT AUTO_INCREMENT PRIMARY KEY, name TEXT, dob INT, client_email TEXT, archived INT)';
     console.log('pries uzklausa');
     const [result] = await conn.query(sql);
     console.log('po uzklausos');
