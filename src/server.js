@@ -5,6 +5,7 @@ const { PORT } = require('./dbSetup');
 const vetRoutes = require('./routes/vetRoutes');
 const logsRoutes = require('./routes/logsRoutes');
 const medRoutes = require('./routes/medRoutes');
+const presRoutes = require('./routes/presRoutes');
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.get('/', (req, res) => res.json('wassup'));
 app.use('/api', vetRoutes);
 app.use('/api', logsRoutes);
 app.use('/api', medRoutes);
+app.use('/api', presRoutes);
 
 app.all('*', (req, res) => {
   res.status(404).json({ err: 'page not found' });

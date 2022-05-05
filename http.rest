@@ -49,3 +49,20 @@ Content-Type: application/json
     "name": "Xanax",
     "description": "Makes your vision go brrrrrr"
 }
+
+### PRESCRIPTIONS
+GET http://localhost:3306/api/pres
+
+###
+POST http://localhost:3306/api/pres/create
+Content-Type: application/json
+
+###
+POST http://localhost:3306/api/pres
+Content-Type: application/json
+
+{
+    "medication_id": 1,
+    "pet_id": 1,
+    "comment": "all good in da hood"
+}
