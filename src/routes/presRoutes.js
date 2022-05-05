@@ -31,4 +31,21 @@ presRoutes.get('/pres', async (req, res) => {
   }
 });
 
+presRoutes.get('/pres/pets', async (req, res) => {
+  let conn;
+  try {
+    // 1 prisijungti
+    conn = await mysql.createConnection(dbConfig);
+    console.log('connected');
+    const sql = 'SELECT * FROM prescriptions LEFT JOIN pets ON pets.id = prescriptions.id LEFT JOIN medications ON prescriptions.medication_id = medications.id';
+    const [rows] = await conn.query(sql);
+    res.json(rows);
+  } catch (error) {
+    console.log('error in get pets ===', error.message);
+    res.status(500).json('something went wrong');
+  } finally {
+    conn?.end();
+  }
+});
+
 module.exports = presRoutes;
