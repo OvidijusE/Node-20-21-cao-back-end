@@ -51,12 +51,15 @@ POST http://localhost:3306/api/meds
 Content-Type: application/json
 
 {
-    "name": "Xanax",
-    "description": "Makes your vision go brrrrrr"
+    "name": "Aspirin",
+    "description": "A painkiller"
 }
 
 ### PRESCRIPTIONS
 GET http://localhost:3306/api/pres
+
+### GET ALL PRES JOINED WITH PETS AND MEDS
+GET http://localhost:3306/api/pres/pets
 
 ###
 POST http://localhost:3306/api/pres/create
@@ -67,7 +70,7 @@ POST http://localhost:3306/api/pres
 Content-Type: application/json
 
 {
-    "medication_id": 1,
-    "pet_id": 1,
-    "comment": "all good in da hood"
+    "medication_id": 2,
+    "pet_id": 2,
+    "comment": "another prescription"
 }
