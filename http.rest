@@ -1,5 +1,5 @@
 ### PETS
-GET http://localhost:3306/api/pets
+GET http://localhost:3000/api/pets
 
 ### 
 GET http://localhost:3306/api/pets/archived
