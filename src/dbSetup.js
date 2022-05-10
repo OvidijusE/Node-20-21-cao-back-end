@@ -9,7 +9,8 @@ const dbConfig = {
   password: process.env.PASSWORD,
   database: process.env.DATABASE,
 };
-console.log('log');
+
+console.log('dbConfig ===', dbConfig);
 
 module.exports = {
   PORT,
